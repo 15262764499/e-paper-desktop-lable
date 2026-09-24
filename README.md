@@ -66,8 +66,6 @@ tests/         设备端协议和灯效测试
 | BLE 固件升级 | [BLE_OTA_DESIGN.md](files/BLE_OTA_DESIGN.md) 和 [IMAGE_TRANSFER_PROTOCOL.md](files/IMAGE_TRANSFER_PROTOCOL.md) | BLE 断开重连、升级清单与 ACK/状态处理 |
 | CH340 串口 Pulse 灯效 | files/ 内无独立的 Pulse 协议文档；LED 背景逻辑可读 [LED_LOGIC.md](files/LED_LOGIC.md) | [MCU_BUILD_WINDOWS.md](docs/MCU_BUILD_WINDOWS.md)、[Pulse Windows 设计记录](docs/superpowers/plans/2026-09-16-pulse-windows.md)、`Core/Inc/pulse_protocol.h`、`Core/Src/pulse_protocol.c`、`Core/Src/pulse_uart.c` |
 
-以上资料描述与设备交互的方法；当前仓库没有 Android Studio 或 Windows 客户端工程，因此应用的依赖安装、运行和打包步骤要以各自的应用源码仓库为准。
-
 ### 设备固件、硬件与外壳
 
 - 修改设备端协议或屏幕驱动：先读 [图片传输协议](files/IMAGE_TRANSFER_PROTOCOL.md)，再看 `Core/Src/image_transfer.c`、`Core/Src/gdem042f86.c`。
@@ -102,6 +100,3 @@ HEX 自带目标地址；首次在空白芯片上使用时需分别写入 Bootlo
 - NFC 配对数据包含设备标识与密钥信息。不要在日志、演示截图或 issue 中公开真实设备的配对凭据。
 - 仓库中的 OTA 发布密钥仅供开发测试；若用于实际交付设备，应替换并妥善保管发布凭据。具体限制见 [OTA 安全边界](files/BLE_OTA_DESIGN.md)。
 
-## 当前资料范围
-
-仓库里的早期开发文档记录了各阶段的设计与验证，有些仍写着“尚未实物联调”或“待实现”。这些句子描述的是当时的状态，不自动代表当前软件的完成情况。开发时以现有固件代码和你实际使用的客户端版本为准；若协议扩展与旧草案冲突，请先完成两端联调再更新文档。
