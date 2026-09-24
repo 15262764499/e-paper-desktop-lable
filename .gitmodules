@@ -1,3 +1,9 @@
 [submodule "e-paper"]
 	path = e-paper
 	url = https://github.com/15262764499/e-paper.git
+[submodule "yipengyishun"]
+	path = yipengyishun
+	url = https://github.com/15262764499/yipengyishun.git
+[submodule "pulse"]
+	path = pulse
+	url = https://github.com/15262764499/pulse.git
