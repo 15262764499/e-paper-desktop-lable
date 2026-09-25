@@ -5,7 +5,7 @@
 > 本仓库目前主要是设备端工程和协议资料。Android 与 Windows 应用的源码、安装包及各自的构建说明未包含在当前仓库中；下文“二次开发”列出的是开发这两端应用时需要阅读的设备协议与需求文档。部分文档保留早期设计草案和历史验证记录，遇到不一致时请结合当前固件接口核对。
 
 ![底座预览](3dmodels/底座预览图.jpg)
-![顶盖预览](3d外壳/顶盖预览图.jpg)
+![顶盖预览](3dmodels/顶盖预览图.jpg)
 
 ## 能做什么
 
@@ -28,7 +28,7 @@
 | 74HC595、七颗 LED | 氛围灯输出 |
 | CH340 | 电脑与 MCU 的 USART1 串口通信 |
 
-具体接线请看 [电路图](refer_doc/SCH_Schematic3_2026-09-11.pdf) 与 [CubeMX 配置](files/墨水屏项目.ioc)。三维模型和预览图位于 [3d外壳](3d外壳)；立创 EDA 工程位于 [pcbproject](pcbproject)。
+具体接线请看 [电路图](refer_doc/SCH_Schematic3_2026-09-11.pdf) 与 [CubeMX 配置](refer_doc/墨水屏项目.ioc)。三维模型和预览图位于 [3dmodels](3d外壳)；立创 EDA 工程位于 [pcbproject](pcbproject)。
 
 ## 仓库导航
 
