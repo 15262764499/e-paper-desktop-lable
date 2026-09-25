@@ -28,7 +28,7 @@
 | 74HC595、七颗 LED | 氛围灯输出 |
 | CH340 | 电脑与 MCU 的 USART1 串口通信 |
 
-具体接线请看 [电路图](files/SCH_Schematic3_2026-09-11.pdf) 与 [CubeMX 配置](files/墨水屏项目.ioc)。三维模型和预览图位于 [3d外壳](3d外壳)；立创 EDA 工程位于 [pcbproject](pcbproject)。
+具体接线请看 [电路图](refer_docs/SCH_Schematic3_2026-09-11.pdf) 与 [CubeMX 配置](files/墨水屏项目.ioc)。三维模型和预览图位于 [3d外壳](3d外壳)；立创 EDA 工程位于 [pcbproject](pcbproject)。
 
 ## 仓库导航
 
