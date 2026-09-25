@@ -70,8 +70,8 @@ tests/         设备端协议和灯效测试
 
 - 修改设备端协议或屏幕驱动：先读 [图片传输协议](refer_doc/IMAGE_TRANSFER_PROTOCOL.md)，再看 `Core/Src/image_transfer.c`、`Core/Src/gdem042f86.c`。
 - 修改 OTA：先读 [OTA 设计]（refer_doc/BLE_OTA_DESIGN.md)，再看 `Bootloader/` 和 `tools/package_ota.py`。
-- 修改灯效、按键或传感器：阅读 [LED_LOGIC.md](files/LED_LOGIC.md) 和 [ANDROID_LED_CONTROL.md](files/ANDROID_LED_CONTROL.md)，再看 `Core/Src/led_595.c`、`Core/Src/aht20.c`。
-- 修改硬件与外壳：参考 [原理图](files/SCH_Schematic3_2026-09-11.pdf)、[IOC](files/墨水屏项目.ioc)、[PCB 工程](pcbproject) 和 [外壳模型](3d外壳)。[HARDWARE_2026_09_11.md](files/HARDWARE_2026_09_11.md) 是历史适配记录，其中早期同步呼吸演示已由当前三模式逻辑替代。
+- 修改灯效、按键或传感器：阅读 [LED_LOGIC.md](refer_doc/LED_LOGIC.md) 和 [ANDROID_LED_CONTROL.md](files/ANDROID_LED_CONTROL.md)，再看 `Core/Src/led_595.c`、`Core/Src/aht20.c`。
+- 修改硬件与外壳：参考 [原理图](refer_doc/SCH_Schematic3_2026-09-11.pdf)、[IOC](files/墨水屏项目.ioc)、[PCB 工程](pcbproject) 和 [外壳模型](3d外壳)。[HARDWARE_2026_09_11.md](refer_doc/HARDWARE_2026_09_11.md) 是历史适配记录，其中早期同步呼吸演示已由当前三模式逻辑替代。
 
 ## 编译与烧录设备固件
 
@@ -81,7 +81,7 @@ tests/         设备端协议和灯效测试
 make -j4 firmware
 ```
 
-Windows PowerShell 可使用仓库内脚本；工具链安装与定位方法见 [Windows 构建说明](docs/MCU_BUILD_WINDOWS.md)：
+Windows PowerShell 可使用仓库内脚本；工具链安装与定位方法见 [Windows 构建说明](refer_doc/MCU_BUILD_WINDOWS.md)：
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File .\build-mcu.ps1
@@ -92,11 +92,11 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\build-mcu.ps1
 | Bootloader | `build_bootloader/epaper_bootloader.hex` | `0x08000000` |
 | Application | `build/epaper_project.hex` | `0x08006000` |
 
-HEX 自带目标地址；首次在空白芯片上使用时需分别写入 Bootloader 和 Application。Application 的 BIN 不能烧到 `0x08000000`。已有设备更新前请先阅读 [OTA 布局与恢复说明](files/BLE_OTA_DESIGN.md)，避免误擦 Bootloader、日历底图或 OTA 元数据。
+HEX 自带目标地址；首次在空白芯片上使用时需分别写入 Bootloader 和 Application。Application 的 BIN 不能烧到 `0x08000000`。已有设备更新前请先阅读 [OTA 布局与恢复说明](refer_doc/BLE_OTA_DESIGN.md)，避免误擦 Bootloader、日历底图或 OTA 元数据。
 
 ## 协议与数据提示
 
 - BLE 传图使用 `FFF0` 服务、`FFF1` Notify、`FFF2` Write；底层串口为 115200、8N1。图片画面固定 400 × 300、2bpp、30,000 字节；图片传输需要逐块确认并在校验完成后等待屏幕刷新。
 - NFC 配对数据包含设备标识与密钥信息。不要在日志、演示截图或 issue 中公开真实设备的配对凭据。
-- 仓库中的 OTA 发布密钥仅供开发测试；若用于实际交付设备，应替换并妥善保管发布凭据。具体限制见 [OTA 安全边界](files/BLE_OTA_DESIGN.md)。
+- 仓库中的 OTA 发布密钥仅供开发测试；若用于实际交付设备，应替换并妥善保管发布凭据。具体限制见 [OTA 安全边界](refer_doc/BLE_OTA_DESIGN.md)。
 
