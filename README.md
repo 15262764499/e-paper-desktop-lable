@@ -50,11 +50,11 @@ tests/         设备端协议和灯效测试
 
 建议按以下顺序阅读。文档路径均在 files/ 内：
 
-1. [ANDROID_APP_REQUIREMENTS.md](files/ANDROID_APP_REQUIREMENTS.md)：应用流程、NFC 唤起、BLE GATT、认证、图片处理、传输状态与错误处理的总入口。
-2. [IMAGE_TRANSFER_PROTOCOL.md](files/IMAGE_TRANSFER_PROTOCOL.md)：NDEF 格式、BLE 帧、HELLO/认证、2bpp 数据、分包 ACK、CRC/HMAC 和状态码。客户端与固件联调以此为基础。
-3. [ANDROID_CALENDAR_DEVELOPMENT.md](files/ANDROID_CALENDAR_DEVELOPMENT.md)：若开发日历功能，阅读日历底图与 MCU 叠加层的分工、系统日历、天气、时间同步和画布坐标。文档含早期草案描述，实际支持情况还需与当前固件核对。
-4. [ANDROID_LED_CONTROL.md](files/ANDROID_LED_CONTROL.md)：若开发七灯控制或动画预览，阅读三种模式、颜色、BLE 命令与 NFC 临时效果的优先级。
-5. [BLE_OTA_DESIGN.md](files/BLE_OTA_DESIGN.md)：若开发手机端固件升级，阅读进入 Bootloader、重新连接、.epota 包结构、升级分片和恢复流程。
+1. [ANDROID_APP_REQUIREMENTS.md](refer_doc/ANDROID_APP_REQUIREMENTS.md)：应用流程、NFC 唤起、BLE GATT、认证、图片处理、传输状态与错误处理的总入口。
+2. [IMAGE_TRANSFER_PROTOCOL.md](refer_doc/IMAGE_TRANSFER_PROTOCOL.md)：NDEF 格式、BLE 帧、HELLO/认证、2bpp 数据、分包 ACK、CRC/HMAC 和状态码。客户端与固件联调以此为基础。
+3. [ANDROID_CALENDAR_DEVELOPMENT.md](refer_doc/ANDROID_CALENDAR_DEVELOPMENT.md)：若开发日历功能，阅读日历底图与 MCU 叠加层的分工、系统日历、天气、时间同步和画布坐标。文档含早期草案描述，实际支持情况还需与当前固件核对。
+4. [ANDROID_LED_CONTROL.md](refer_doc/ANDROID_LED_CONTROL.md)：若开发七灯控制或动画预览，阅读三种模式、颜色、BLE 命令与 NFC 临时效果的优先级。
+5. [BLE_OTA_DESIGN.md](refer_doc/BLE_OTA_DESIGN.md)：若开发手机端固件升级，阅读进入 Bootloader、重新连接、.epota 包结构、升级分片和恢复流程。
 
 ### Windows / 电脑端应用
 
@@ -62,14 +62,14 @@ tests/         设备端协议和灯效测试
 
 | 功能 | files/ 中应读的文档 | 还应核对 |
 | --- | --- | --- |
-| BLE 传图与设备控制 | [IMAGE_TRANSFER_PROTOCOL.md](files/IMAGE_TRANSFER_PROTOCOL.md)；日历功能参考 [ANDROID_CALENDAR_DEVELOPMENT.md](files/ANDROID_CALENDAR_DEVELOPMENT.md)，灯效参考 [ANDROID_LED_CONTROL.md](files/ANDROID_LED_CONTROL.md) | Android 专属的 NFC 唤起、系统日历、定位和权限部分需要替换为 Windows 实现；电脑端同样要满足设备认证与报文格式 |
-| BLE 固件升级 | [BLE_OTA_DESIGN.md](files/BLE_OTA_DESIGN.md) 和 [IMAGE_TRANSFER_PROTOCOL.md](files/IMAGE_TRANSFER_PROTOCOL.md) | BLE 断开重连、升级清单与 ACK/状态处理 |
-| CH340 串口 Pulse 灯效 | files/ 内无独立的 Pulse 协议文档；LED 背景逻辑可读 [LED_LOGIC.md](files/LED_LOGIC.md) | [MCU_BUILD_WINDOWS.md](docs/MCU_BUILD_WINDOWS.md)、[Pulse Windows 设计记录](docs/superpowers/plans/2026-09-16-pulse-windows.md)、`Core/Inc/pulse_protocol.h`、`Core/Src/pulse_protocol.c`、`Core/Src/pulse_uart.c` |
+| BLE 传图与设备控制 | [IMAGE_TRANSFER_PROTOCOL.md](refer_doc/IMAGE_TRANSFER_PROTOCOL.md)；日历功能参考 [ANDROID_CALENDAR_DEVELOPMENT.md](refer_doc/ANDROID_CALENDAR_DEVELOPMENT.md)，灯效参考 [ANDROID_LED_CONTROL.md](refer_doc/ANDROID_LED_CONTROL.md) | Android 专属的 NFC 唤起、系统日历、定位和权限部分需要替换为 Windows 实现；电脑端同样要满足设备认证与报文格式 |
+| BLE 固件升级 | [BLE_OTA_DESIGN.md](refer_doc/BLE_OTA_DESIGN.md) 和 [IMAGE_TRANSFER_PROTOCOL.md](refer_doc/IMAGE_TRANSFER_PROTOCOL.md) | BLE 断开重连、升级清单与 ACK/状态处理 |
+| CH340 串口 Pulse 灯效 | files/ 内无独立的 Pulse 协议文档；LED 背景逻辑可读 [LED_LOGIC.md](refer_doc/LED_LOGIC.md) | [MCU_BUILD_WINDOWS.md](refer_doc/MCU_BUILD_WINDOWS.md)、[Pulse Windows 设计记录](refer_doc/superpowers/plans/2026-09-16-pulse-windows.md)、`Core/Inc/pulse_protocol.h`、`Core/Src/pulse_protocol.c`、`Core/Src/pulse_uart.c` |
 
 ### 设备固件、硬件与外壳
 
-- 修改设备端协议或屏幕驱动：先读 [图片传输协议](files/IMAGE_TRANSFER_PROTOCOL.md)，再看 `Core/Src/image_transfer.c`、`Core/Src/gdem042f86.c`。
-- 修改 OTA：先读 [OTA 设计](files/BLE_OTA_DESIGN.md)，再看 `Bootloader/` 和 `tools/package_ota.py`。
+- 修改设备端协议或屏幕驱动：先读 [图片传输协议](refer_doc/IMAGE_TRANSFER_PROTOCOL.md)，再看 `Core/Src/image_transfer.c`、`Core/Src/gdem042f86.c`。
+- 修改 OTA：先读 [OTA 设计]（refer_doc/BLE_OTA_DESIGN.md)，再看 `Bootloader/` 和 `tools/package_ota.py`。
 - 修改灯效、按键或传感器：阅读 [LED_LOGIC.md](files/LED_LOGIC.md) 和 [ANDROID_LED_CONTROL.md](files/ANDROID_LED_CONTROL.md)，再看 `Core/Src/led_595.c`、`Core/Src/aht20.c`。
 - 修改硬件与外壳：参考 [原理图](files/SCH_Schematic3_2026-09-11.pdf)、[IOC](files/墨水屏项目.ioc)、[PCB 工程](pcbproject) 和 [外壳模型](3d外壳)。[HARDWARE_2026_09_11.md](files/HARDWARE_2026_09_11.md) 是历史适配记录，其中早期同步呼吸演示已由当前三模式逻辑替代。
 
